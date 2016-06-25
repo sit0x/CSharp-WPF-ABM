@@ -1,0 +1,14 @@
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\bin\Debug\WFP_CONNECT_DB.exe.config
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\bin\Debug\WFP_CONNECT_DB.exe
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\bin\Debug\WFP_CONNECT_DB.pdb
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\WFP_CONNECT_DB.csprojResolveAssemblyReference.cache
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\MainWindow.g.cs
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\App.g.cs
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\WFP_CONNECT_DB_MarkupCompile.cache
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\WFP_CONNECT_DB_MarkupCompile.lref
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\MainWindow.baml
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\WFP_CONNECT_DB.g.resources
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\WFP_CONNECT_DB.Properties.Resources.resources
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\WFP_CONNECT_DB.csproj.GenerateResource.Cache
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\WFP_CONNECT_DB.exe
+c:\users\cristian\documents\visual studio 2015\Projects\WFP_CONNECT_DB\WFP_CONNECT_DB\obj\Debug\WFP_CONNECT_DB.pdb
