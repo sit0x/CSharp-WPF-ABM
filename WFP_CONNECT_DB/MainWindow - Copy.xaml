@@ -1,0 +1,144 @@
+﻿<Window x:Class="WFP_CONNECT_DB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WFP_CONNECT_DB"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1080">
+    
+    <ControlTemplate x:Key="validationErrorTemplate">
+        <DockPanel Name="DockTop" VerticalAlignment="Top" HorizontalAlignment="Stretch" LastChildFill="True" Height="750" Width="1080">
+
+        <Grid Name="GridPPal">
+            <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="230"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1060"/>
+        </Grid.ColumnDefinitions>
+
+        <ToolBar x:Name="Tool1">
+
+            <Button x:Name="Button_add" ToolTip="Agregar registro" Click="Button_add_Click">
+                <Image x:Name="Add" Source="Resources/data_add.png" ToolTip="Agregar registro"/>
+            </Button>
+            <Button x:Name="Button_edit" Margin="0,0,0,0" Click="Button_edit_Click">
+                <Image Source="Resources/data_edit.png" ToolTip="Modificar registro" />
+            </Button>
+            <Button  x:Name="Button_del" Click="Button_del_Click">
+                <Image Source="Resources/data_delete.png" ToolTip="Borrar registro"/>
+            </Button>
+
+            <Button x:Name="Button_cancel" Margin="785,0,0,0" Click="Button_cancel_Click">
+                <Image Source="Resources/delete.png" ToolTip="Cancelar"/>
+            </Button>
+            <Button x:Name="Button_exit" Click="Button_exit_Click" Margin="5,0,0,0">
+                <Image Source="Resources/pgm_exit.png" ToolTip="Cerrar"/>
+            </Button>
+        </ToolBar>
+
+        <StackPanel Name="STLeft" Height="Auto" Width="Auto" HorizontalAlignment="Left" Margin="0,10,0,0"
+                    Grid.Row="1">
+            <Grid Name="GridFields" Width="Auto" Height="Auto" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="50"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="ID Empleado:"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Nombre:"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Apellido:"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="Fecha de Nacimiento:"/>
+                <Label Grid.Row="4" Grid.Column="0" Content="Género:"/>
+                <Label Grid.Row="5" Grid.Column="0" Content="Documento:"/>
+                <Label Grid.Row="6" Grid.Column="0" Content="E-Mail:"/>
+                <Label Grid.Row="7" Grid.Column="0" Content="Domicilio:" Height="26" VerticalAlignment="Top"/>
+                    <TextBox Name="FEmpId"        Grid.Column="2" Grid.Row="0" Margin="3" />
+                        <TextBox Name="FEmpNombre"    Grid.Column="2" Grid.Row="1" Margin="3" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}">
+                        <TextBox.Text>
+                                <Binding Path="NameEmp" Mode="TwoWay" UpdateSourceTrigger="LostFocus">
+                                <Binding.ValidationRules>
+                                        <local:NameValidator></local:NameValidator>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <TextBox Name="FEmpApellido"  Grid.Column="2" Grid.Row="2" Margin="3" />
+                    <DatePicker Grid.Column="2" Grid.Row="3" Margin="3" Name="FEmpFechanac"
+                                        SelectedDate="{Binding Path=FechaNacimiento, Mode=TwoWay,
+                                        ValidatesOnExceptions=true, 
+                                        NotifyOnValidationError=true}" 
+                                        VerticalAlignment="Center"/>
+                <ComboBox FontSize="10" Name="FEmpGenero" Grid.Column="2" Grid.Row="4" Margin="3">
+                    <ComboBoxItem Content="Seleccione género" Selector.IsSelected="True" />
+                    <ComboBoxItem Content="Masculino" />
+                    <ComboBoxItem Content="Femenino" />
+                </ComboBox>
+                <TextBox Name="FEmpDoc"       Grid.Column="2" Grid.Row="5" Margin="3" />
+                <TextBox Name="FEmpEmail"     Grid.Column="2" Grid.Row="6" Margin="3" />
+                <TextBox Name="FEmpDomicilio" Grid.Column="2" Grid.Row="7" Margin="3" />
+            </Grid>
+        </StackPanel>
+
+        <ToolBar x:Name="Tool2" Grid.Row="2">
+            <Grid Name="GridSeaarch" Width="Auto" Height="Auto">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="50"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Buscar:"/>
+                <ComboBox FontSize="10" Name="FEmpSelField" Grid.Column="1" Grid.Row="0" Margin="3" Width="Auto">
+                    <ComboBoxItem Content="Campo filtro" Selector.IsSelected="True" />
+                    <ComboBoxItem Content="ID" />
+                    <ComboBoxItem Content="Nombre" />
+                    <ComboBoxItem Content="Apellido" />
+                    <ComboBoxItem Content="Fecha_nac"/>
+                    <ComboBoxItem Content="Genero"/>
+                    <ComboBoxItem Content="Documento"/>
+                    <ComboBoxItem Content="Email"/>
+                    <ComboBoxItem Content="Domicilio"/>
+                </ComboBox>
+                <TextBox Name="FEmpSearch"    Grid.Column="2" Grid.Row="0" Margin="3" />
+                <Button x:Name="Button_search" Grid.Column="3" Grid.Row="0" Margin="3" Click="Button_search_Click">
+                    <Image Source="Resources/data_find.png" ToolTip="Buscar" />
+                </Button>
+            </Grid>
+        </ToolBar>
+
+        <StackPanel Name="TopRight" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,10,0,0"
+                    Grid.Row="3">
+            <Label Content="No se encontraron registros." Name="lbl_grid" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="#FFE10000"/>
+            <WrapPanel Margin="10" HorizontalAlignment="Center">
+                <DataGrid AutoGenerateColumns="True" Name="GNRLData" SelectionMode="Single"
+                          FontSize="15" Padding="0" Background="Black" ScrollViewer.VerticalScrollBarVisibility="Visible" MaxHeight="150"/>
+            </WrapPanel>
+        </StackPanel>
+        <StatusBarItem Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <ProgressBar x:Name="pbar" Value="10" Width="80" Height="18" />
+        </StatusBarItem>
+    </Grid>
+</DockPanel>
+</ControlTemplate>
+</Window>
